@@ -28,16 +28,15 @@ disp("  Deriving Equation of Motion")
 % The ABA gives us the joint accelerations qdd that result from applying
 % torques tau when the current joint angles are q and qd.
 qdd_sym = FDab(double_pendulum_model, q_sym, qd_sym, tau_sym);
-f_sym = [qd_sym; qdd_sym];
-f_sym = simplify(f_sym);
+f_sym = simplify(qdd_sym);
 
 disp("  Saving Dynamics.m")
 % Generate and save the file Dynamics.m
 comment_string = ...
-[" This function describes the equations of motion x' = f(x,u) of a double pendulum," ...
- " where x = [q,qd] = [theta1,theta2,theta1',theta2'] and u = [tau1,tau2]." ...
+[" This function describes the equations of motion qdd = f(q,qd,tau) of a double pendulum," ...
+ " where q = [theta1,theta2] and qd = [theta1',theta2'] and tau = [tau1,tau2]." ...
 ];
-f_func = matlabFunction(f_sym, 'file', 'Dynamics','vars',{x_sym,u_sym}, 'Comments', comment_string);
+f_func = matlabFunction(f_sym, 'file', 'Dynamics','vars',{q_sym, qd_sym, u_sym}, 'Comments', comment_string);
 
 disp("  Deriving End Effector Position")
 % Symbolic expression for end-effector position
