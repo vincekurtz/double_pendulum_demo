@@ -1,15 +1,20 @@
-function [] = animate_double_pendulum(t_sim, q_sim)
+function [] = animate_double_pendulum(t_sim, q_sim, save_video)
     % Animate the motion of our simple double pendulum model
     %
     % Parameters:
     %   t_sim  : a 1xT*dt vector of timestamps
     %   q_sim  : a 2xT*dt vector of states q = [theta1;theta2;]
 
+    % Check whether the save_vido argument is supplied: default is false
+    if ~exist('save_video','var')
+        save_video = false;
+    end
+
     % Optional: save video
-    save_video = false;
     if save_video
+        dt = t_sim(2) - t_sim(1);
         myVideo = VideoWriter('double_pendulum_animation');
-        myVideo.FrameRate = 100;
+        myVideo.FrameRate = 1/(10*dt);  % we only save every 10th frame
         open(myVideo)
     end
 

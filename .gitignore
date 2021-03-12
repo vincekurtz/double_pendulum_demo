@@ -1,4 +1,6 @@
 *.swp
+*.mp4
+*.avi
 Dynamics.m
 EndEffector.m
 EndEffectorJacobian.m
