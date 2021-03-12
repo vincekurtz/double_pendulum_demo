@@ -1,0 +1,7 @@
+*.swp
+Dynamics.m
+EndEffector.m
+EndEffectorJacobian.m
+MassMatrix.m
+CoriolisMatrixTimesQd.m
+GravityTorque.m
