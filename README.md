@@ -3,6 +3,8 @@
 A simple example of using [Spatial v2](http://royfeatherstone.org/spatial/v2/) to model,
 control, and simulate a double pendulum in Matlab.
 
+![](double_pendulum_animation.gif)
+
 ## Install Instructions
 
 Clone this repository: `git clone https://github.com/vincekurtz/double_pendulum_demo`
